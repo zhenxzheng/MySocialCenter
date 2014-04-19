@@ -35,6 +35,7 @@ app.use(express.bodyParser());
 app.get('/', index.view);
 app.get('/auth/facebook', facebook.auth);
 app.get('/UserHasLoggedIn', facebook.getFacebookInfo);
+
 // app.get('/facebookapp', function(req,res){
 // 	graph.get("zuck", function(err, res) {
 //   console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }

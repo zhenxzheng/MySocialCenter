@@ -34,12 +34,15 @@ exports.auth = function(req, res) {
 }
 
 exports.getFacebookInfo = function(req,res) {
-	var data;
-	graph.get("me?fields=username,id,birthday,gender", function(err, response) {
-	//	data = {response: response, foo: 'bar'};
-		data = response;
-  		console.log(data); // { picture: 'http://profile.ak.fbcdn.net/'... }
-	});
-
-	res.render("facebook", data);
+		//var data;
+		var params = { fields: "username,id,birthday,gender,picture"};
+		graph.get("me", params, function(err, response) {
+		//	data = {response: response, foo: 'bar'};
+		//	data = response;
+			console.log(response);
+	  		// console.log(data); // { picture: 'http://profile.ak.fbcdn.net/'... }
+	  		res.render('index', {response:response, loggedin: true});
+		});
+	// console.log(data);
+	// res.render("facebook", data);
 }

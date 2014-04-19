@@ -19,7 +19,20 @@
 
 <body>
       <div class="container">
-      	<a href="/auth/facebook"><h1>Login with Facebook</h1></a>
+      	{{#if loggedin}}
+        <a><h1>Logout</h1></a>
+        <h2>My Facebook</h2>
+        <img src="{{response.picture.data.url}}"}}>
+        <p>basic info</p1>
+          <ul>
+            <li>Username: {{response.username}}</li>
+            <li>FB ID: {{response.id}}</li>
+            <li>Birthday: {{response.birthday}}</li>
+            <li>Gender: {{response.gender}}</li>
+          <ul>
+        {{else}}
+            <a href="/auth/facebook"><h1>Login with Facebook</h1></a>
+        {{/if}}
     </div>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
