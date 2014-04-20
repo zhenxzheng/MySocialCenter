@@ -8,7 +8,7 @@ var conf = {
 	client_id: process.env.facebook_app_id,
 	client_secret: process.env.facebook_app_secret,
 	redirect_uri: process.env.facebook_app_uri,
-	scope: process.env.facebook_app_scope
+	scope: email, user_about_me, user_birthday, user_location, publish_stream
 	// client_id:      '12312321312'
  //  , client_secret:  'Y123113123'
  //  , scope:          'email, user_about_me, user_birthday, user_location, publish_stream'
