@@ -18,23 +18,49 @@
 </head>
 
 <body>
-      <div class="container">
-      	{{#if loggedin}}
-        <a><h1>Logout</h1></a>
-        <h2>My Facebook</h2>
-        <img src="{{response.picture.data.url}}"}}>
-        <p>basic info</p1>
-          <ul>
-            <li>Username: {{response.username}}</li>
-            <li>FB ID: {{response.id}}</li>
-            <li>Birthday: {{response.birthday}}</li>
-            <li>Gender: {{response.gender}}</li>
-          <ul>
-        {{else}}
-            <a href="/auth/facebook"><h1>Login with Facebook</h1></a>
-        {{/if}}
+    <div class="container-fluid>">
+      <div class="row">
+        <div class="col-md-6" id="facebook">
+          	{{#if loggedin}}
+            <a><h1>Logout</h1></a>
+            <h2>My Facebook</h2>
+            <img src="{{response.picture.data.url}}"}}>
+            <p>basic info</p1>
+              <ul>
+                <li>Username: {{response.username}}</li>
+                <li>FB ID: {{response.id}}</li>
+                <li>Birthday: {{response.birthday}}</li>
+                <li>Gender: {{response.gender}}</li>
+              <ul>
+            {{else}}
+                <a href="/auth/facebook"><h1>Login with Facebook</h1></a>
+            {{/if}}
+        </div>
+        <div class="col-md-6" id="twitter">
+          <h1>Twitter</h1>
+          <h2>Search tweets:</h2>
+
+          <form id="viewTweet" role="form" method="post" action="/">
+            <h3>view tweets</h3>
+            <div class="form-group">
+              <input type="text" class="form-control" id="tweet" placeholder="Search.." name="tweet">
+            </div>
+            <input type="submit" id="submitBtn" class="btn btn-default" value="View Tweet"></input>
+          </form>
+          {{#if input}}
+          <h3>Viewing Tweets containing: {{input}}</h3>
+          {{#each reply.statuses}}
+          <h4>{{created_at}}</h4>
+          <p>{{text}}</p>
+          <p>Retweet count: {{retweet_count}}</p>
+          <p>Favorite count: {{favorite_count}}</p>
+          {{/each}}
+          {{/if}}
+        </div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/tweet.js"></script>
 </body>
 </html>
